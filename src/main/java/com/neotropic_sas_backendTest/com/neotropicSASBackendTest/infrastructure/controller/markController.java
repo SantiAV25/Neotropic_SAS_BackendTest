@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,7 +42,7 @@ public class markController {
         return new ResponseEntity<>(this.markService.findAllmarks(), HttpStatus.OK);
     }
 
-    @PostMapping("/deleteMark")
+    @DeleteMapping("/deleteMark")
     public ResponseEntity<Mark> deleteMark(@RequestBody @Validated Mark mark) {
         System.out.println("EntroAlControladorEliminar");
         return new ResponseEntity<>(this.markService.deleteMark(mark), HttpStatus.OK);
@@ -53,12 +54,7 @@ public class markController {
         return new ResponseEntity<>(this.markService.updateMark(mark), HttpStatus.OK);
     }
 
-    @GetMapping("/findMarkById")
-    public ResponseEntity<Mark> findMarkById(@RequestParam("entId") @Validated String id) {
-        System.out.println("EntroAlControladorBuscar");
-        return new ResponseEntity<>(this.markService.findMarkById(id), HttpStatus.OK);
-    }
-
+  
     
     
     

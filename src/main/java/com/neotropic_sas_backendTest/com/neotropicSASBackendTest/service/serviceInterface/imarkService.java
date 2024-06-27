@@ -7,7 +7,6 @@ public interface imarkService {
     Mark saveMark(Mark mark);
     Mark deleteMark(Mark mark);
     Mark updateMark(Mark mark);
-    Mark findMarkById(String id);
     List<Mark> findAllmarks();
 
 

@@ -33,10 +33,7 @@ public class markServiceImplement implements imarkService{
        return this.markRepository.updateMark(mark);
     }
 
-    @Override
-    public Mark findMarkById(String id) {
-       return this.markRepository.findMarkById(id);
-    }
+    
 
     @Override
     public List<Mark> findAllmarks() {

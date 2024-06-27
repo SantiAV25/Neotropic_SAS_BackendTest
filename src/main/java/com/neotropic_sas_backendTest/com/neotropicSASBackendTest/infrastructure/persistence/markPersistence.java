@@ -51,10 +51,7 @@ public class markPersistence implements imarkRepository{
         return markEntityMapper.toMark(markEntity);
     }
 
-    @Override
-    public Mark findMarkById(String id) {
-        return markEntityMapper.toMark(markRepository.findById(id).get());
-    }
+ 
 
    
     
