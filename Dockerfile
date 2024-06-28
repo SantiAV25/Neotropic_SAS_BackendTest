@@ -19,7 +19,7 @@ RUN chmod +x gradlew
 # Build the application
 RUN ./gradlew build
 RUN mkdir -p build/libs
-RUN cp build/libs/*.jar app.jar
+RUN cp build/libs/*.jar ./app.jar
 
 # Copy the jar file to the container
 COPY build/libs/*.jar app.jar
