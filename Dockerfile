@@ -1,15 +1,13 @@
-FROM openjdk:17
+FROM gradle:8-jdk17-alpine as build
 
 # Set the working directory to /app
 WORKDIR /app
 
 # Copy the Gradle build files to the working directory
-COPY build.gradle /app/
-COPY settings.gradle /app/
-COPY gradle/. /app/
+COPY . /app
 
 # Copy the application code to the working directory
-COPY src/main/ /app/
+RUN ls /app/
 
 # Build the application using Gradle
 RUN gradle build --no-daemon
@@ -20,8 +18,9 @@ FROM openjdk:17
 # Set the working directory to /app
 WORKDIR /app
 
+
 # Copy the built application code to the working directory
-COPY build/libs/*.jar app.jar
+COPY --from=build /app/build/libs/*.jar app.jar
 
 # Expose the port for the Spring Boot application
 EXPOSE 8080
