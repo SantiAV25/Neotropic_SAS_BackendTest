@@ -17,9 +17,9 @@ COPY settings.gradle .
 RUN chmod +x gradlew
 
 # Build the application
-RUN ./gradlew build && mkdir -p build/libs && cp build/libs/*.jar app.jar
-
-EXPOSE 8080
+RUN ./gradlew build
+RUN mkdir -p build/libs
+RUN cp build/libs/*.jar app.jar
 
 # Copy the jar file to the container
 COPY build/libs/*.jar app.jar
